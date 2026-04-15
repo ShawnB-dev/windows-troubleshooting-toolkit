@@ -17,12 +17,14 @@ A comprehensive Windows diagnostics and troubleshooting toolkit for system admin
 - **Hardware** - device drivers, GPU/display adapters, battery/power status
 - **Performance** - CPU, memory, disk, and network usage metrics
 - **Aggregated Reports** - combine all diagnostics into a single report file
+- **GUI Interface** - graphical mode for interactive diagnostics and export
 
 ## Requirements
 
 - Windows 7 or later
 - Python 3.9 or later
 - Administrator privileges for some diagnostics (firewall, event logs, services)
+- tkinter (included with Python on Windows)
 
 ## Installation
 
@@ -32,7 +34,7 @@ Install the toolkit in editable/development mode:
 pip install -e .
 ```
 
-This makes the toolkit available as a global module. You can then run commands from any directory.
+This makes the toolkit available as a global module and command-line tools (`wttk` and `wttk-gui`). You can then run commands from any directory.
 
 Optionally, install the enhanced event log support:
 
@@ -61,6 +63,28 @@ python -m windows_troubleshooting_toolkit connectivity
 python -m windows_troubleshooting_toolkit security
 python -m windows_troubleshooting_toolkit performance
 ```
+
+## GUI Mode
+
+Launch the graphical interface for interactive diagnostics:
+
+```powershell
+python -m windows_troubleshooting_toolkit gui
+```
+
+Or directly:
+
+```powershell
+wttk-gui
+```
+
+The GUI provides:
+- Dropdown selection of all available diagnostics
+- One-click execution with live output
+- Verbose mode toggle
+- Export results to file
+- Copy output to clipboard
+- Formatted text display with scrolling
 
 ## Available Commands
 

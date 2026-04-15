@@ -40,13 +40,20 @@ COMMANDS = {
 }
 
 
+def gui_command(args):
+    from .gui import run_gui
+    run_gui()
+    return None
+
+
 def create_parser():
     parser = argparse.ArgumentParser(
         description="Windows Troubleshooting Toolkit",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
 
-    parser.add_argument("command", choices=COMMANDS.keys(), help="Toolkit command to run")
+    cli_commands = list(COMMANDS.keys()) + ["gui"]
+    parser.add_argument("command", choices=cli_commands, help="Toolkit command to run (or 'gui' for GUI mode)")
     parser.add_argument("--version", action="version", version=__version__)
     parser.add_argument("--output", help="Path to save a text report")
     parser.add_argument("--verbose", action="store_true", help="Show verbose diagnostics")
@@ -57,6 +64,10 @@ def main(argv=None):
     argv = argv or sys.argv[1:]
     parser = create_parser()
     args = parser.parse_args(argv)
+
+    if args.command == "gui":
+        gui_command(args)
+        return
 
     command = COMMANDS[args.command]
     output = command(args)

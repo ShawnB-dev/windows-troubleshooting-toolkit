@@ -16,6 +16,10 @@ dependencies = [
 [project.optional-dependencies]
 win32 = ["pywin32>=305"]
 
+[project.scripts]
+wttk = "windows_troubleshooting_toolkit.cli:main"
+wttk-gui = "windows_troubleshooting_toolkit.gui:run_gui"
+
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
