@@ -1,0 +1,105 @@
+Metadata-Version: 2.4
+Name: windows-troubleshooting-toolkit
+Version: 0.1.0
+Summary: A Windows troubleshooting toolkit for diagnostics and issue investigation.
+Author: Windows Troubleshooting Toolkit
+License: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: psutil>=5.9
+Requires-Dist: colorama>=0.4.6
+Provides-Extra: win32
+Requires-Dist: pywin32>=305; extra == "win32"
+
+# Windows Troubleshooting Toolkit
+
+A lightweight Windows troubleshooting toolkit for collecting system diagnostics and debugging common issues.
+
+## Features
+
+- System information and hardware overview
+- Disk and memory diagnostics
+- System integrity and repair tooling
+- Disk health and partition reporting
+- Network connectivity, DNS, and traceroute checks
+- Firewall profile and listening port inspection
+- Startup applications and scheduled tasks
+- Installed programs inventory
+- Windows Defender and UAC/Secure Boot status
+- Security event log and user sessions
+- Device health, GPU/driver details, and battery state
+- Performance snapshots for CPU, memory, disk, and network
+- Full aggregated report generation
+
+## Install
+
+Install the toolkit in editable mode from the project root:
+
+```powershell
+pip install -e .
+```
+
+This installs both the toolkit and its dependencies. You can then run commands from any directory without setting `PYTHONPATH`.
+
+Alternatively, to install dependencies only:
+
+```powershell
+pip install -r requirements.txt
+```
+
+Then set `PYTHONPATH` before running (required in each session):
+
+```powershell
+$env:PYTHONPATH = Join-Path (Get-Location) 'src'
+python -m windows_troubleshooting_toolkit system
+```
+
+## Install with Event Log Support
+
+For Windows event log access (optional), also install `pywin32`:
+
+```powershell
+pip install pywin32
+```
+
+## Usage
+
+Run the toolkit as a module from any directory (once installed with `pip install -e .`):
+
+```powershell
+# Individual commands
+python -m windows_troubleshooting_toolkit system
+python -m windows_troubleshooting_toolkit system-integrity
+python -m windows_troubleshooting_toolkit disk-health
+python -m windows_troubleshooting_toolkit network
+python -m windows_troubleshooting_toolkit connectivity
+python -m windows_troubleshooting_toolkit firewall
+python -m windows_troubleshooting_toolkit processes
+python -m windows_troubleshooting_toolkit services
+python -m windows_troubleshooting_toolkit startup
+python -m windows_troubleshooting_toolkit installed
+python -m windows_troubleshooting_toolkit security
+python -m windows_troubleshooting_toolkit audit
+python -m windows_troubleshooting_toolkit hardware
+python -m windows_troubleshooting_toolkit performance
+python -m windows_troubleshooting_toolkit eventlogs
+
+# Full report combining all diagnostics
+python -m windows_troubleshooting_toolkit report
+```
+
+## Examples
+
+Save a complete diagnostic report to a file:
+
+```powershell
+python -m windows_troubleshooting_toolkit report --output diagnostic_report.txt
+```
+
+Run specific diagnostics in an elevated PowerShell:
+
+```powershell
+python -m windows_troubleshooting_toolkit connectivity
+python -m windows_troubleshooting_toolkit firewall
+python -m windows_troubleshooting_toolkit security
+```

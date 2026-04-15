@@ -1,0 +1,28 @@
+[project]
+name = "windows-troubleshooting-toolkit"
+version = "0.1.0"
+description = "A Windows troubleshooting toolkit for diagnostics and issue investigation."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  {name = "Windows Troubleshooting Toolkit"}
+]
+license = {text = "MIT"}
+dependencies = [
+  "psutil>=5.9",
+  "colorama>=0.4.6"
+]
+
+[project.optional-dependencies]
+win32 = ["pywin32>=305"]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["windows_troubleshooting_toolkit"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

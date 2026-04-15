@@ -1,0 +1,97 @@
+# Windows Troubleshooting Toolkit
+
+A comprehensive Windows diagnostics and troubleshooting toolkit for system administrators and support professionals. Collects and reports system health, network status, security posture, and performance metrics from the command line.
+
+## Features
+
+- **System Information** - OS version, uptime, boot time, processor details
+- **Disk Health** - partition layout, free space, SMART monitoring, disk checks
+- **System Integrity** - SFC verification, DISM image health, Windows updates, restore points
+- **Network Diagnostics** - adapter configuration, connectivity checks, DNS resolution, traceroute
+- **Firewall & Security** - Windows Firewall rules, listening ports, network connections
+- **Security Status** - Windows Defender status, UAC settings, Secure Boot state
+- **Processes & Services** - top CPU/memory consumers, Windows service status
+- **Startup & Tasks** - registered startup programs, scheduled tasks
+- **Installed Programs** - software inventory from registry
+- **Audit & Events** - security event log summary, user session history
+- **Hardware** - device drivers, GPU/display adapters, battery/power status
+- **Performance** - CPU, memory, disk, and network usage metrics
+- **Aggregated Reports** - combine all diagnostics into a single report file
+
+## Requirements
+
+- Windows 7 or later
+- Python 3.9 or later
+- Administrator privileges for some diagnostics (firewall, event logs, services)
+
+## Installation
+
+Install the toolkit in editable/development mode:
+
+```powershell
+pip install -e .
+```
+
+This makes the toolkit available as a global module. You can then run commands from any directory.
+
+Optionally, install the enhanced event log support:
+
+```powershell
+pip install pywin32
+```
+
+## Quick Start
+
+Run a single diagnostic:
+
+```powershell
+python -m windows_troubleshooting_toolkit system
+```
+
+Generate a complete diagnostic report and save to file:
+
+```powershell
+python -m windows_troubleshooting_toolkit report --output report.txt
+```
+
+Run specific diagnostics:
+
+```powershell
+python -m windows_troubleshooting_toolkit connectivity
+python -m windows_troubleshooting_toolkit security
+python -m windows_troubleshooting_toolkit performance
+```
+
+## Available Commands
+
+| Command | Purpose |
+|---------|---------|
+| `system` | System information, CPU, memory, disk overview |
+| `system-integrity` | SFC, DISM, Windows updates, restore points |
+| `disk-health` | Disk drives, partitions, SMART, chkdsk status |
+| `network` | Network adapters, IP configuration, traffic stats |
+| `connectivity` | DNS, ping, traceroute, listening connections |
+| `firewall` | Firewall profiles, rules, open ports |
+| `processes` | Top processes by CPU and memory |
+| `services` | Windows service status and startup types |
+| `startup` | Startup registry entries and scheduled tasks |
+| `installed` | Installed software inventory |
+| `security` | Defender status, UAC, Secure Boot |
+| `audit` | Security events, user sessions |
+| `hardware` | Device errors, GPU, battery status |
+| `performance` | CPU/memory/disk/network metrics |
+| `eventlogs` | Windows event log summary |
+| `report` | Generate complete diagnostic report |
+
+## Usage Notes
+
+- Most commands run without elevation but produce richer output when run as Administrator
+- Network diagnostics (connectivity, firewall) require Administrator privileges
+- Event log access requires either Administrator mode or optional `pywin32` package
+- Reports are written as plain text and can be saved to a file for archival or sharing
+- Commands can be run individually or combined into a single report
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) file for details.
+

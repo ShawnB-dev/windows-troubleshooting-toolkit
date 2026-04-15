@@ -1,0 +1,5 @@
+psutil>=5.9
+colorama>=0.4.6
+
+[win32]
+pywin32>=305
