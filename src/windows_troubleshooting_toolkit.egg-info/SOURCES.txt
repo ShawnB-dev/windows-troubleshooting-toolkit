@@ -1,11 +1,14 @@
+LICENSE
 README.md
 pyproject.toml
 src/windows_troubleshooting_toolkit/__init__.py
 src/windows_troubleshooting_toolkit/__main__.py
 src/windows_troubleshooting_toolkit/cli.py
+src/windows_troubleshooting_toolkit/gui.py
 src/windows_troubleshooting_toolkit.egg-info/PKG-INFO
 src/windows_troubleshooting_toolkit.egg-info/SOURCES.txt
 src/windows_troubleshooting_toolkit.egg-info/dependency_links.txt
+src/windows_troubleshooting_toolkit.egg-info/entry_points.txt
 src/windows_troubleshooting_toolkit.egg-info/requires.txt
 src/windows_troubleshooting_toolkit.egg-info/top_level.txt
 tests/test_cli.py

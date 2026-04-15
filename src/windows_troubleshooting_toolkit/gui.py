@@ -27,7 +27,6 @@ COMMANDS = {
     "report": report.run,
 }
 
-
 class WindowsTroubleshootingGUI:
     def __init__(self, root):
         self.root = root
